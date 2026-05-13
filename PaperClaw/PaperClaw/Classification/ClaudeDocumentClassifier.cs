@@ -19,6 +19,21 @@ public class ClaudeDocumentClassifier : IDocumentClassifier
         return Parse(json);
     }
 
+    public async Task<(DocumentType Type, DocumentMetadata Metadata, string ExtractedText)> ClassifyImageAsync(FileInfo file)
+    {
+        var mediaType = file.Extension.ToLowerInvariant() switch
+        {
+            ".jpg" or ".jpeg" => "image/jpeg",
+            ".gif" => "image/gif",
+            ".webp" => "image/webp",
+            _ => "image/png"
+        };
+        var imageData = await File.ReadAllBytesAsync(file.FullName);
+        var (json, extractedText) = await _messenger.ClassifyImageAsync(imageData, mediaType);
+        var (type, metadata) = Parse(json);
+        return (type, metadata, extractedText);
+    }
+
     internal static (DocumentType, DocumentMetadata) Parse(string json)
     {
         using var doc = JsonDocument.Parse(json);

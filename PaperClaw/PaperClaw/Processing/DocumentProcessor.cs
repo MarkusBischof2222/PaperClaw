@@ -30,10 +30,16 @@ public class DocumentProcessor
         return results;
     }
 
+    private static readonly HashSet<string> ImageExtensions =
+        new(StringComparer.OrdinalIgnoreCase) { ".png", ".jpg", ".jpeg", ".gif", ".webp" };
+
     private async Task<ProcessingResult> ProcessFileAsync(FileInfo file)
     {
+        if (ImageExtensions.Contains(file.Extension))
+            return await ProcessImageAsync(file);
+
         if (!file.Extension.Equals(".pdf", StringComparison.OrdinalIgnoreCase))
-            return new ProcessingResult.Skipped(file.FullName, "Not a PDF file");
+            return new ProcessingResult.Skipped(file.FullName, "Not a supported file type");
 
         var extraction = _extractor.TryExtract(file);
 
@@ -49,6 +55,23 @@ public class DocumentProcessor
         {
             var (type, metadata) = await _classifier.ClassifyAsync(text);
             var saveResult = await _outputTarget.SaveAsync(file, text, metadata, type);
+            file.Delete();
+            return saveResult == SaveResult.Duplicate
+                ? new ProcessingResult.Duplicate(file.FullName)
+                : new ProcessingResult.Success(file.FullName);
+        }
+        catch (Exception ex)
+        {
+            return new ProcessingResult.Failed(file.FullName, "Processing failed", ex);
+        }
+    }
+
+    private async Task<ProcessingResult> ProcessImageAsync(FileInfo file)
+    {
+        try
+        {
+            var (type, metadata, extractedText) = await _classifier.ClassifyImageAsync(file);
+            var saveResult = await _outputTarget.SaveAsync(file, extractedText, metadata, type);
             file.Delete();
             return saveResult == SaveResult.Duplicate
                 ? new ProcessingResult.Duplicate(file.FullName)
