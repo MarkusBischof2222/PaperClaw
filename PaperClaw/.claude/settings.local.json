@@ -30,7 +30,25 @@
       "PowerShell(git rm *)",
       "PowerShell(Tail *)",
       "PowerShell(Out-Null *)",
-      "PowerShell(git add *)"
+      "PowerShell(git add *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" -Recurse -Filter \"*.cs\")",
+      "Bash(Select-Object -ExpandProperty FullName)",
+      "Bash(Sort-Object)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" -Depth 2 | Where-Object { $_.PSIsContainer } | Select-Object -ExpandProperty FullName | Sort-Object)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" list \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.csproj\" package)",
+      "PowerShell($xml = [xml]\\(Get-Content \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.xml\"\\); $xml.doc.members.member | Where-Object { $_.name -match 'Tool|Function|tool_use' } | Select-Object -First 40 -ExpandProperty name)",
+      "PowerShell($xml = [xml]\\(Get-Content \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.xml\"\\); $xml.doc.members.member | Where-Object { $_.name -match 'GetOrCreateTool|FunctionAttribute|FunctionParameter' } | ForEach-Object { \"=== $\\($_.name\\) ===\"; $_.summary; $_.param | ForEach-Object { \"  param[$\\($_.name\\)]: $_\" }; \"\" })",
+      "PowerShell($xml = [xml]\\(Get-Content \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.xml\"\\); $xml.doc.members.member | Where-Object { $_.name -match 'FunctionAttribute' } | ForEach-Object { \"=== $\\($_.name\\) ===\"; $_.InnerXml; \"\" })",
+      "PowerShell($xml = [xml]\\(Get-Content \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.xml\"\\); $xml.doc.members.member | Select-Object -ExpandProperty name | Select-String \"Function\")",
+      "PowerShell($xml = [xml]\\(Get-Content \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.xml\"\\); $xml.doc.members.member | Where-Object { $_.name -match 'MessageParameters|SystemMessage|System' } | Select-Object -First 20 -ExpandProperty name)",
+      "PowerShell(Add-Type -Path \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.dll\"; [Anthropic.SDK.Messaging.MessageParameters].GetProperties\\(\\) | Select-Object Name, PropertyType)",
+      "PowerShell($xml = [xml]\\(Get-Content \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.xml\"\\); $xml.doc.members.member | Where-Object { $_.name -match 'P:Anthropic.SDK.Messaging' } | Select-Object -ExpandProperty name)",
+      "PowerShell($xml = [xml]\\(Get-Content \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.xml\"\\); $xml.doc.members.member | Where-Object { $_.name -match 'MessageParameters|SystemMessage|SystemPrompt' } | Select-Object -ExpandProperty name)",
+      "PowerShell($xml = [xml]\\(Get-Content \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\anthropic.sdk\\\\3.3.0\\\\lib\\\\net8.0\\\\Anthropic.SDK.xml\"\\); $xml.doc.members.member | Select-Object -ExpandProperty name | Select-String \"System\")",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" build \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" --configuration Debug 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" --no-build --logger \"console;verbosity=normal\" 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" --logger \"console;verbosity=normal\" 2>&1)"
     ]
   }
 }

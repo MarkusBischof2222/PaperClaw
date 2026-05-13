@@ -7,6 +7,7 @@ using PaperClaw.Models;
 using PaperClaw.Output;
 using PaperClaw.Pdf;
 using PaperClaw.Processing;
+using PaperClaw.Search;
 
 var config = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", optional: false)
@@ -18,6 +19,19 @@ var inboxPath = config["PaperClaw:InboxPath"]
     ?? throw new InvalidOperationException("PaperClaw:InboxPath not configured.");
 var outboxPath = config["PaperClaw:OutboxPath"]
     ?? throw new InvalidOperationException("PaperClaw:OutboxPath not configured.");
+
+if (args.Length > 0 && args[0].Equals("search", StringComparison.OrdinalIgnoreCase))
+{
+    if (args.Length < 2 || string.IsNullOrWhiteSpace(args[1]))
+    {
+        Console.Error.WriteLine("Usage: PaperClaw search \"your question\"");
+        return;
+    }
+    var searchService = new ClaudeSearchService(apiKey, outboxPath);
+    var answer = await searchService.SearchAsync(args[1]);
+    Console.WriteLine(answer);
+    return;
+}
 
 var services = new ServiceCollection();
 services.AddSingleton<IInputSource>(new FileInputSource(inboxPath));

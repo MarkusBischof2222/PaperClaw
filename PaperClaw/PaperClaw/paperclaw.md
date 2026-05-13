@@ -1,4 +1,4 @@
-﻿# Papwerclaw
+﻿# Paperclaw
 
 Organize PDFs from an input source to an output target with 
 classification in between to be able to answer agentic questions afterwards.
@@ -32,7 +32,14 @@ classification in between to be able to answer agentic questions afterwards.
 
 ## Further reasoning on the output
 
-+ e.g. "show me all invoices of the last month"
++ searching the output structure via "mode" parameter of Paperclaw (no param is "classify" workflow, with "search" param the search is started, the "question" is just another parameter)
++ by text of the document
++ semantic queries like e.g. "show me all invoices of the last month"
++ search tool recognition is done via claude code
+   + simple full text search
+   + type search
+   + date search
+   + combined
 
 ## Security and privacy considerations
 
