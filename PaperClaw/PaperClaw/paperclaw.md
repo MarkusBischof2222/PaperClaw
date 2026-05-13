@@ -18,11 +18,12 @@ classification in between to be able to answer agentic questions afterwards.
 
 + First read out only the text layer of the pdf using PdfPig (MIT, pure .NET, no native dependencies)
 + Use Claude API to classify the file into one of the fixed types based on the text layer: Invoice, Contract, Receipt, Letter, Report, Other
-+ Also use Claude API to extract meta information and write it to a `transcript.md` alongside the PDF in the output folder. Fields: title, date, parties (sender/recipient), summary, key amounts/references
-
++ Also use Claude API to extract meta information and write it to a `transcript.md` alongside the PDF in the output target. Fields: title, date, parties (sender/recipient), summary, key amounts/references
++ Put the text layer also in the output target
++ 
 ## Output
 
-+ My be an arbitrary file storage. Start wit ha simple file output (outbox)
++ My be an arbitrary file storage. Start with a simple file output (outbox)
 + The layout for the output should be structured
   + Start with "Year", "Month" (from file's last modification date), then "Type" (if available), then for each file an "Id" (timestamp + random suffix), then the contents. 
 
