@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(where.exe dotnet 2>$null; & \"C:\\\\Program Files\\\\dotnet\\\\dotnet.exe\" --version 2>$null)"
+    ]
+  }
+}
