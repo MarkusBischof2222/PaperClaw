@@ -1,0 +1,24 @@
+# Build outputs
+bin/
+obj/
+
+# User secrets & local config
+appsettings.json
+appsettings.*.json
+!appsettings.example.json
+secrets.json
+
+# JetBrains Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# OS
+.DS_Store
+Thumbs.db

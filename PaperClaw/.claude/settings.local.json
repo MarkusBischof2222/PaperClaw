@@ -18,7 +18,19 @@
       "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" nuget locals global-packages --list 2>&1)",
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\\" | Where-Object { $_.Name -match \"anthropic\" } | Select-Object Name)",
       "PowerShell(Get-Item \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\\" | Select-Object FullName; \\(Get-ChildItem \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\\" -ErrorAction Stop | Measure-Object\\).Count)",
-      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" --no-build --logger \"console;verbosity=normal\" 2>&1)"
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" --no-build --logger \"console;verbosity=normal\" 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" --no-build --logger \"console;verbosity=quiet\" 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" --logger \"console;verbosity=quiet\" 2>&1)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" -Force -Name \"*.gitignore\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" -Force -Name \".gitignore\")",
+      "PowerShell(git filter-repo *)",
+      "PowerShell(git rm *)",
+      "PowerShell(Tail *)",
+      "PowerShell(Out-Null *)",
+      "PowerShell(git add *)"
     ]
   }
 }

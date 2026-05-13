@@ -34,11 +34,18 @@ Console.WriteLine($"Processing PDFs from: {inboxPath}");
 var results = await processor.ProcessAllAsync();
 
 var successes = results.OfType<ProcessingResult.Success>().ToList();
+var duplicates = results.OfType<ProcessingResult.Duplicate>().ToList();
 var skipped = results.OfType<ProcessingResult.Skipped>().ToList();
 var failed = results.OfType<ProcessingResult.Failed>().ToList();
 
-Console.WriteLine($"Done. Success: {successes.Count}, Skipped: {skipped.Count}, Failed: {failed.Count}");
+Console.WriteLine($"Done. Success: {successes.Count}, Duplicate: {duplicates.Count}, Skipped: {skipped.Count}, Failed: {failed.Count}");
+foreach (var d in duplicates)
+    Console.WriteLine($"  DUPLICATE: {Path.GetFileName(d.FilePath)} — already in outbox");
 foreach (var f in failed)
-    Console.WriteLine($"  FAILED:   {Path.GetFileName(f.FilePath)} — {f.Reason}");
+{
+    Console.WriteLine($"  FAILED:    {Path.GetFileName(f.FilePath)} — {f.Reason}");
+    if (f.Exception is not null)
+        Console.WriteLine($"             {f.Exception.GetType().Name}: {f.Exception.Message}");
+}
 foreach (var s in skipped)
-    Console.WriteLine($"  SKIPPED:  {Path.GetFileName(s.FilePath)} — {s.Reason}");
+    Console.WriteLine($"  SKIPPED:   {Path.GetFileName(s.FilePath)} — {s.Reason}");

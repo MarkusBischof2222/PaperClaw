@@ -27,6 +27,8 @@ classification in between to be able to answer agentic questions afterwards.
 + My be an arbitrary file storage. Start with a simple file output (outbox)
 + The layout for the output should be structured
   + Start with "Year", "Month" (from file's last modification date), then "Type" (if available), then for each file an "Id" (timestamp + random suffix), then the contents. 
++ Duplicate documents should get recognized and not added twice (but processed and removed)
+  + and additional log is then only added to the output containing date time of the duplicated processing  
 
 ## Further reasoning on the output
 
