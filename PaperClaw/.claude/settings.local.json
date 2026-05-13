@@ -48,7 +48,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" build \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" --configuration Debug 2>&1)",
       "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" --no-build --logger \"console;verbosity=normal\" 2>&1)",
-      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" --logger \"console;verbosity=normal\" 2>&1)"
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" --logger \"console;verbosity=normal\" 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw\\\\bin\\\\Debug\\\\net10.0\\\\PaperClaw.dll\" search *)"
     ]
   }
 }
