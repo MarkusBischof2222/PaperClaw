@@ -4,7 +4,21 @@
       "Bash(dotnet sln *)",
       "PowerShell(Get-Command *)",
       "PowerShell(Get-ChildItem *)",
-      "PowerShell(& \"$env:USERPROFILE\\\\.dotnet\\\\dotnet.exe\" sln \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" add \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\tests\\\\PaperClaw.Tests\\\\PaperClaw.Tests.csproj\")"
+      "PowerShell(& \"$env:USERPROFILE\\\\.dotnet\\\\dotnet.exe\" sln \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.sln\" add \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\tests\\\\PaperClaw.Tests\\\\PaperClaw.Tests.csproj\")",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" -Recurse -Force | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\(\"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\", \".\"\\) } | Sort-Object)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" -Force | Where-Object { -not $_.PSIsContainer } | Select-Object Name)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw\" -Force | Where-Object { -not $_.PSIsContainer } | Select-Object Name)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\tests\\\\PaperClaw.Tests\" -Force | Where-Object { -not $_.PSIsContainer } | Select-Object Name)",
+      "PowerShell(head *)",
+      "Bash(dotnet build *)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" build \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" nuget list UglyToad.PdfPig --include-prerelease 2>&1 | Select-Object -First 20)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" nuget search UglyToad.PdfPig --prerelease 2>&1 | Select-Object -First 30)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" add \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw\\\\PaperClaw.csproj\" package UglyToad.PdfPig --prerelease 2>&1)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" nuget locals global-packages --list 2>&1)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\\" | Where-Object { $_.Name -match \"anthropic\" } | Select-Object Name)",
+      "PowerShell(Get-Item \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\\" | Select-Object FullName; \\(Get-ChildItem \"C:\\\\Users\\\\INS-29\\\\.nuget\\\\packages\\\\\" -ErrorAction Stop | Measure-Object\\).Count)",
+      "PowerShell(& \"C:\\\\Users\\\\INS-29\\\\.dotnet\\\\dotnet.exe\" test \"C:\\\\DEV\\\\PaperClaw\\\\PaperClaw\" --no-build --logger \"console;verbosity=normal\" 2>&1)"
     ]
   }
 }

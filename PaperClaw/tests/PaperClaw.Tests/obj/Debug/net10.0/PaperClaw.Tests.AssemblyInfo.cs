@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PaperClaw.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0afc1c7e640b90f13cb03944ea0c5eca7629d1e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+454f5096ab8e3399fb9896bb2c77815ae724a607")]
 [assembly: System.Reflection.AssemblyProductAttribute("PaperClaw.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PaperClaw.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

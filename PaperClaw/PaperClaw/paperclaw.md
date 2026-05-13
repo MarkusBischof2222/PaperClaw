@@ -20,7 +20,8 @@ classification in between to be able to answer agentic questions afterwards.
 + Use Claude API to classify the file into one of the fixed types based on the text layer: Invoice, Contract, Receipt, Letter, Report, Other
 + Also use Claude API to extract meta information and write it to a `transcript.md` alongside the PDF in the output target. Fields: title, date, parties (sender/recipient), summary, key amounts/references
 + Put the text layer also in the output target
-+ 
++ Put all log output inside a log.txt also in the output target
+
 ## Output
 
 + My be an arbitrary file storage. Start with a simple file output (outbox)

@@ -7,4 +7,24 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+        <PackageReference Include="UglyToad.PdfPig" Version="1.7.0-custom-5" />
+        <PackageReference Include="Anthropic.SDK" Version="3.*" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.*" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.*" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.*" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>PaperClaw.Tests</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 </Project>
