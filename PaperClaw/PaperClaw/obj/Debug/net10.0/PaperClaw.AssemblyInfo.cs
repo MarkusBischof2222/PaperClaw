@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PaperClaw")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+454f5096ab8e3399fb9896bb2c77815ae724a607")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cdf2bd91dfb1465f97455b222fa7c30245cf4c8d")]
 [assembly: System.Reflection.AssemblyProductAttribute("PaperClaw")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PaperClaw")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
